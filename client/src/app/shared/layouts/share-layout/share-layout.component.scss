@@ -1,0 +1,37 @@
+
+:host {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.share-layout {
+    display: flex;
+
+    &__container {
+        width: 100%;
+        display: flex;
+    }
+
+    &__menu {
+        background: #024F38;
+        width: 64px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &__content-layout {
+        display: flex;
+        height: 100%;
+        min-height: 0;
+
+        width: 100%;
+        //background: #E0E0E0;
+        background: rgba(242, 242, 242, 0.7);
+
+        overflow: hidden;
+    }
+
+}

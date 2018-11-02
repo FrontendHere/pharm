@@ -1,0 +1,12 @@
+<ul class="attach__list">
+    <li class="attach__item" *ngFor="let doc of files" (click)="download(doc.url, doc.name)">
+        <div class="attach__left">
+            <ui-icon [name]="doc.extension"></ui-icon>
+            <span class="attach__text">{{doc.name}} </span>
+            <span class="attach__size">{{doc.size}}</span>
+        </div>
+        <div class="attach__right">
+            <span class="attach__date">{{doc.date | date: 'dd.MM.y hh:mm'}}</span>
+        </div>
+    </li>
+</ul>

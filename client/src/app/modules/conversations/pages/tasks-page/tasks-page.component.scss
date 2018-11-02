@@ -1,0 +1,23 @@
+.drug-tasks {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  height: 100%;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+
+
+  &__left {
+    width: 49%;
+  }
+
+  &__right {
+    width: 49%;
+  }
+
+  &__filter {
+    display: flex;
+
+  }
+}

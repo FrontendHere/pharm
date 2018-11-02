@@ -1,0 +1,13 @@
+<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="26" height="24" fill="black" fill-opacity="0"/>
+<rect width="26" height="24" fill="black" fill-opacity="0"/>
+<rect width="24" height="24" fill="black" fill-opacity="0"/>
+<path d="M12.24 10.4844C11.5212 10.4844 10.9275 10.25 10.4587 9.78125C9.99 9.3125 9.75562 8.71875 9.75562 8C9.75562 7.28125 9.99 6.6875 10.4587 6.21875C10.9275 5.75 11.5212 5.51562 12.24 5.51562C12.9587 5.51562 13.5525 5.75 14.0212 6.21875C14.49 6.6875 14.7244 7.28125 14.7244 8C14.7244 8.71875 14.49 9.3125 14.0212 9.78125C13.5525 10.25 12.9587 10.4844 12.24 10.4844ZM12.24 1.01562C10.24 1.04688 8.58375 1.71875 7.27125 3.03125C5.95875 4.34375 5.28687 6 5.25562 8C5.53687 10.8438 6.69312 13.6719 8.72437 16.4844C10.7869 19.2656 11.9587 20.7656 12.24 20.9844C12.5212 20.7656 13.6775 19.2656 15.7087 16.4844C17.7712 13.6719 18.9431 10.8438 19.2244 8C19.1931 6 18.5212 4.34375 17.2087 3.03125C15.8962 1.71875 14.24 1.04688 12.24 1.01562Z" fill="#219653"/>
+<rect width="10" height="10" fill="black" fill-opacity="0" transform="translate(16 14)"/>
+<rect width="10" height="10" fill="black" fill-opacity="0" transform="translate(16 14)"/>
+<rect x="16" y="17" width="10" height="4" fill="#F2F2F2"/>
+<rect x="23" y="14" width="10" height="4" transform="rotate(90 23 14)" fill="#F2F2F2"/>
+<rect width="8" height="8" fill="black" fill-opacity="0" transform="translate(17 15)"/>
+<rect x="17" y="18" width="8" height="2" fill="#219653"/>
+<rect x="23" y="15" width="8" height="3" transform="rotate(90 23 15)" fill="#219653"/>
+</svg>

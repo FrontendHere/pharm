@@ -1,0 +1,24 @@
+<div class="conversation-menu">
+    <div class="conversation-menu__header">
+        <div class="conversation-menu__header--content">Переговоры</div>
+        <div class="conversation-menu__header--action" (click)="toggleMenuBar()">
+            <i class="material-icons">
+                sort
+            </i>
+        </div>
+
+    </div>
+    <app-menu [items]="views"></app-menu>
+    <div class="conversation-menu__accordeon-header">Отчеты</div>
+    <div class="conversation-menu__accordeon-header">Аналитика</div>
+</div>
+
+<div class="conversation-actions">
+    <ul class="conversation-actions__list">
+        <li class="conversation-actions__item conversation-actions__item--add-conversation" [routerLink]="['./', 'new']">Добавить переговоры</li>
+        <li class="conversation-actions__item conversation-actions__item--add-meet">Добавить встречу</li>
+        <li class="conversation-actions__item conversation-actions__item--add-task">Добавить задачу</li>
+        <li class="conversation-actions__item conversation-actions__item--add-attach">Добавить файл</li>
+        <li class="conversation-actions__item conversation-actions__item--add-report">Добавить отчет</li>
+    </ul>
+</div>

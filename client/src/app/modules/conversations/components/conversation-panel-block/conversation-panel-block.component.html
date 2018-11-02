@@ -1,0 +1,14 @@
+<div class="conversation-panel__block">
+    <span class="conversation-panel__header">{{headerText}}</span>
+    <ul class="conversation-panel__list">
+        <li class="conversation-panel__item" *ngFor="let item of visibleItems">
+          <ng-container *ngTemplateOutlet="tpl; context: {val: item}"></ng-container>
+        </li>
+    </ul>
+    <div class="conversation-panel__block-footer" (click)="toggle()" *ngIf="otherItemsCount > 0">
+        Еще {{otherItemsCount}} срочных {{footerText}}
+    </div>
+    <div class="conversation-panel__block-footer" (click)="toggle()" *ngIf="otherItemsCount === 0">
+        Свернуть
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="card-top-header__wrapper">
+
+    <div class="card-top-header__left">
+        <span *ngIf="!isNew; then T_phrase;"></span>
+    </div>
+
+    <div class="card-top-header__center" *ngIf="isNew">
+
+        <div>
+            <span *ngIf="isNew; then T_phrase;"></span>
+        </div>
+        <div>
+            <span *ngIf="isNew; then T_actionButtons;"></span>
+        </div>
+
+
+    </div>
+
+    <div class="card-top-header__right">
+
+        <span *ngIf="!isNew; then T_actionButtons;"></span>
+        <span *ngIf="!isNew; then T_subActionButtons;"></span>
+
+    </div>
+
+</div>
+
+<ng-template #T_phrase>
+    <span class="card-top-header__header"
+          [innerHTML]="headerPhrase"
+    ></span>
+</ng-template>
+
+<ng-template #T_actionButtons>
+        <span class="card-top-header__btn g-btns g-btns--success"
+              (click)="action('save')"
+              routerLinkActive="conversation-menu__item--active"
+        >Сохранить</span>
+    <span class="card-top-header__btn g-btns"
+          (click)="action('cancel')"
+          routerLinkActive="conversation-menu__item--active"
+    >Отмена</span>
+
+</ng-template>
+
+<ng-template #T_subActionButtons>
+
+        <span class="card-top-header__icon">
+            <i class="material-icons">
+            print
+            </i>
+        </span>
+    <span class="card-top-header__icon">
+                <i class="material-icons">
+                share
+                </i>
+            </span>
+    <span class="card-top-header__icon"
+          [class.card-top-header__icon--active]="historyIsOpen"
+          (click)="toggleHistory()">
+                <i class="material-icons">
+                    timelapse
+                </i>
+            </span>
+</ng-template>

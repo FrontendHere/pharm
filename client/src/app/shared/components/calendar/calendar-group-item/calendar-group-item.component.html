@@ -1,0 +1,8 @@
+<div class="calendar-month-week__col calendar-month-week__col--td calendar-month-week__col--name">
+    <div class="calendar-month-week__col calendar-month-week__col--td calendar-month-week__col--name">
+        <img class="calendar-month-week__logo"  src="../../../../../assets/img/logos/l_jonson.png" alt="">
+        <app-efficiency [count]="item.efficiency"></app-efficiency>
+    </div>
+</div>
+<div class="calendar-month-week__col calendar-month-week__col--td calendar-month-week__col--week" *ngFor="let i of [1, 2, 3, 4]">{{weeks[i].count ? weeks[i].name : ''}}</div>
+<div class="calendar-month-week__col calendar-month-week__col--td calendar-month-week__col--week">{{ item.updateDate | date:'d MMMM':null:'ru' }}</div>

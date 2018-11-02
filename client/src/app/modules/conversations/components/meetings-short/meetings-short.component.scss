@@ -1,0 +1,64 @@
+.meet {
+    &__header {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 8px;
+    }
+
+    &__date {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 0.0025em;
+
+        /* #4F4F4F */
+        color: #4F4F4F;
+    }
+
+    &__body {
+        position: relative;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 14px;
+        letter-spacing: 0.005em;
+        margin-bottom: 8px;
+
+        /* черный */
+        color: #000000;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: -22px;
+
+            display: block;
+            height: 12px;
+            width: 12px;
+
+
+            //border: 1px solid #828282;
+            border-radius: 18px;
+            background-color: #F2C94C;
+
+        }
+    }
+
+    &__footer {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 12px;
+        letter-spacing: 0.0025em;
+        text-align: left;
+
+        /* #333333 */
+        color: #333333;
+    }
+}

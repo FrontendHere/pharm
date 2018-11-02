@@ -1,0 +1,32 @@
+<main class="employee">
+    <div class="employee__info">
+        <app-employee [user]="employee" [needPosition]="true"></app-employee>
+
+        <div class="employee__info__contacts">
+            <div class="material-icons ">
+                <i class="material-icons employee__info__contacts-item-icon">
+                    phone_in_talk
+                </i>
+                <div class="material-icons employee__info__contacts-item-text">
+                    {{employee?.phone | phone}}
+                </div>
+            </div>
+            <div class="employee__info__contacts-item">
+                <i class="material-icons employee__info__contacts-item-icon">
+                    email
+                </i>
+                <div class="material-icons employee__info__contacts-item-text">
+                    {{employee?.email}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="employee__action">
+        <div class="employee__action-item"><i class="material-icons employee__action-icon">
+            check_box
+        </i><span class="employee__action-text">Поставить задачу</span></div>
+        <div class="employee__action-item"><i class="material-icons employee__action-icon">
+            mail_outline
+        </i> <span class="employee__action-text">Написать</span></div>
+    </div>
+</main>

@@ -1,0 +1,46 @@
+:host {
+  height: 100%;
+}
+.efficiency {
+  text-align: center;
+  width: 117px;
+  height: 100%;
+  background: transparentize(#C4C4C4, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 32px;
+    letter-spacing: 0.0025em;
+    /* #219653 */
+
+    &--high {
+      color: #219653;
+    }
+    &--medium {
+      color: #F2994A;
+    }
+    &--low {
+      color: #FF001F;
+    }
+  }
+
+  &__percent {
+    bottom: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 16px;
+    letter-spacing: 0.0025em;
+
+    /* черный */
+    color: #000000;
+  }
+
+}

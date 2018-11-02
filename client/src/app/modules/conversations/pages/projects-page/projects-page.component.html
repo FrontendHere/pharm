@@ -1,0 +1,10 @@
+<div class="projects" [perfectScrollbar]>
+    <ul class="projects__list">
+        <li class="projects__item" *ngFor="let project of projects | async">
+            <app-card-project
+            [project]="project"
+            ></app-card-project>
+        </li>
+
+    </ul>
+</div>

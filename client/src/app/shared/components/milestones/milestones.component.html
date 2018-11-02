@@ -1,0 +1,68 @@
+<div class="milestones">
+    <div class="milestones__header" *ngIf="title">
+        {{title}}
+    </div>
+    <div class="milestones__content">
+        <div class="milestones__list">
+            <ng-container *ngFor="let item of milestones">
+                <div [class.milestones__item]="true"
+                     [ngStyle]="{ width: item.last ? '20px' : 100 / (events.length - 1) + '%' }"
+                     [class.red]="(item.type || []).includes('expired')"
+                     [class.font13]="(item.type || []).includes('expired')">
+                    <div class="milestones__date">{{item.dateStart | date:'d MMM':null:'ru'}}</div>
+                    <div class="milestones__deviation" *ngIf="(item.type || []).includes('expired')"></div>
+                    <div class="milestones__square"
+                         [class.red]="(item.type || []).includes('expired')"
+                         [class.planned]="item.planned"
+                         [class.dot]="item.planned"></div>
+                    <div class="milestones__frontier" *ngIf="item.childrenMilestones.length"></div>
+                    <div class="milestones__frontier2" *ngIf="item.hasCurrentDate && showCurrentDate">
+                        <span>{{currentDate | date:'d MMM':null:'ru'}}</span>
+                    </div>
+                    <div class="milestones__text"
+                         *ngIf="item.name && milestones.length < MAX_EVENT_LENGTH"
+                         [class.blue]="item.hasCurrentDate">
+                        <i class="material-icons"
+                           *ngIf="item.shiftable">
+                            lock
+                        </i>
+                        <span>
+                            {{item.name}}
+                            <ul class="sub-events" *ngIf="item.childrenMilestones.length">
+                                <li *ngFor="let subEvent of item.childrenMilestones">{{subEvent.name}}</li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+    <div class="milestones__footer" *ngIf="showLegend">
+        <ul class="milestones-legend__list">
+            <li class="milestones-legend__item milestones-legend__item--current">
+                <div class="g-icons g-icons--current"></div>
+                <span class="milestones-legend__text">Текущая дата / веха</span>
+            </li>
+            <li class="milestones-legend__item milestones-legend__item--deviation">
+                <div class="g-icons g-icons--deviation"></div>
+                <span class="milestones-legend__text">Отклонение</span>
+            </li>
+            <li class="milestones-legend__item milestones-legend__item--fix">
+                <i class="material-icons">
+                    lock
+                </i>
+                <span class="milestones-legend__text">Веха с фиксированными сроками</span>
+            </li>
+            <li class="milestones-legend__item milestones-legend__item--start-end">
+                <div class="g-icons g-icons--start-end"></div>
+                <span class="milestones-legend__text">Начало / окончание вехи</span>
+            </li>
+            <li class="milestones-legend__item milestones-legend__item--prognosis">
+                <div class="g-icons g-icons--prognosis"></div>
+                <span class="milestones-legend__text">Прогноз смещения даты начала</span>
+            </li>
+        </ul>
+
+    </div>
+</div>

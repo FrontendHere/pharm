@@ -1,0 +1,41 @@
+<main class="task"
+      [ngClass]="{'task-org': task.isLiableFromCounterparties}"
+      [attr.data-before]="task?.liable?.organization.name">
+    <div class="task__status">
+        <div [ngSwitch]="task.isComplete">
+            <i *ngSwitchCase="true" class="material-icons task__status-success">
+                check_circle_outline
+            </i>
+            <i *ngSwitchCase="false" class="material-icons">
+                radio_button_unchecked
+            </i>
+        </div>
+    </div>
+    <div class="task__info">
+        <div class="task__left">
+            <div class="task__text-wrap ">
+                                    <span
+                                        class="task__text">{{task.name}} </span>
+                <i class="material-icons" *ngIf="task.favorite">
+                    star
+                </i>
+            </div>
+            <span class="task__date">{{task?.deadline | date: 'dd MMMM yyyy в HH:mm'}}</span>
+            <app-priority-btn [priority]="task.priority"></app-priority-btn>
+        </div>
+        <div class="task__right" >
+            <app-employee
+                *ngIf="task.isLiableFromCounterparties"
+                [org]="task?.liable?.organization"
+                direction="ltr"
+                [showLabel]="false"></app-employee>
+            <app-employee [user]="task?.liable"
+                          [needPosition]="true"
+                          class="task__right-liable"
+                          (click)="op.toggle($event)"></app-employee>
+            <p-overlayPanel #op appendTo="body">
+                <app-overlay-employee [employee]="task?.liable"></app-overlay-employee>
+            </p-overlayPanel>
+        </div>
+    </div>
+</main>

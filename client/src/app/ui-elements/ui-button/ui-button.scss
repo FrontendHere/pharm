@@ -1,0 +1,74 @@
+:host.g-button {
+  background-color: #ffffff;
+  width: 25%;
+  height: 100%;
+  margin-top: 10px;
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  &__item {
+    position: relative;
+
+    display: inline-block;
+    margin-bottom: 10px;
+    padding-left: 40px;
+    padding-top: 11px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+
+    border: 1px solid #219653;
+    border-radius: 18px;
+    cursor: pointer;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #219653;
+
+    &:hover {
+      background: #E9F5EE;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 10px;
+
+      width: 24px;
+      height: 24px;
+      display: block;
+
+      background-repeat: no-repeat;
+      background-position: center;
+
+    }
+
+    &--add-conversation:before {
+      background-image: url(../../../assets/img/icons-svg/i_conversation-green.svg);
+    }
+
+    &--add-meet:before {
+      background-image: url(../../../assets/img/icons-svg/i_meet.svg);
+    }
+
+    &--add-task:before {
+      background-image: url(../../../assets/img/icons-svg/i_task.svg);
+    }
+
+    &--add-attach:before {
+      background-image: url(../../../assets/img/icons-svg/i_attach-green.svg);
+    }
+
+    &--add-report:before {
+      background-image: url(../../../assets/img/icons-svg/i_report-green.svg);
+    }
+
+  }
+}
+

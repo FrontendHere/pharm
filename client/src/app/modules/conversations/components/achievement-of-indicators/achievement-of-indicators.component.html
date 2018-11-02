@@ -1,0 +1,14 @@
+<span class="conversation-content-cards__text" *ngIf="indicators">
+    Достижение показателей: {{countAchievements()}}/{{indicators?.length}}
+</span>
+<ul class="indicators__list">
+    <li class="indicators__item" *ngFor="let indicator of indicators">
+        <div class="indicators__indicator"
+             [class.indicators__indicator--ready]="isAchievement(indicator)"
+        >
+            <i class="material-icons" [class.rotate45]="!isAchievement(indicator)">
+                {{ isAchievement(indicator) ? 'check_circle' : 'control_point'}}
+            </i>
+        </div>
+    </li>
+</ul>

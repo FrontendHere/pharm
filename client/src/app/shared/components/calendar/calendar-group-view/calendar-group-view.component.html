@@ -1,0 +1,40 @@
+<div class="conversaions-calendar-drugs__wrapper">
+    <div class="calendar-month-week">
+        <div class="calendar-month-week__row no-hover">
+            <div class="calendar-month-week__col calendar-month-week__col--th calendar-month-week__col--name">
+                <div>Контрагент</div>
+                <div>Эффективность</div>
+            </div>
+            <!--<div class="calendar-month-week__col calendar-month-week__col&#45;&#45;th"></div>-->
+            <div class="calendar-month-week__col calendar-month-week__col--th calendar-month-week__col--week">
+                <i
+                    mwlCalendarPreviousView
+                    [view]="view"
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="viewDateChange.next(viewDate)"
+                    class="material-icons navigation-icons">
+                    keyboard_arrow_left
+                </i>
+                {{ viewDate | date:'MMM':null:locale }}<br>нед.1</div>
+            <div class="calendar-month-week__col calendar-month-week__col--th calendar-month-week__col--week">{{ viewDate | date:'MMM':null:locale }}<br>нед.2</div>
+            <div class="calendar-month-week__col calendar-month-week__col--th calendar-month-week__col--week">{{ viewDate | date:'MMM':null:locale }}<br>нед.3</div>
+            <div class="calendar-month-week__col calendar-month-week__col--th calendar-month-week__col--week">
+                {{ viewDate | date:'MMM':null:locale }}<br>нед.4
+                <i
+                    mwlCalendarNextView
+                    [view]="view"
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="viewDateChange.next(viewDate)"
+                    class="material-icons navigation-icons">
+                    keyboard_arrow_right
+                </i>
+            </div>
+            <div class="calendar-month-week__col calendar-month-week__col--th calendar-month-week__col--week">Последнее<br>обновление <span class="calendar__moth-forward"></span> </div>
+        </div>
+    </div>
+    <div class="calendar-month-week" id="calendarBody">
+        <ng-container *ngFor="let item of groups">
+            <calendar-group-item class="calendar-month-week__row" [item]="item" (click)="showDrugs(item)"></calendar-group-item>
+        </ng-container>
+    </div>
+</div>

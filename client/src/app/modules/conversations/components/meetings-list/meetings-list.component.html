@@ -1,0 +1,21 @@
+<mat-card class="card-content__block">
+    <mat-card-header class="card-content__block-header">{{header}}</mat-card-header>
+    <div class="card-content__block-content">
+        <mat-accordion>
+            <mat-expansion-panel  *ngFor="let meeting  of meetings">
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <app-meeting class="meeting__header" [meeting]="meeting"></app-meeting>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="tasks-process__list">
+                    <div class="tasks-process__list-item" *ngFor="let task of meeting?.tasks">
+                        <app-task
+                            [task]="task"
+                        ></app-task>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</mat-card>

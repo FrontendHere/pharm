@@ -1,0 +1,241 @@
+.g-icons {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &--search {
+        color: #FFFFFF;
+        /*  &:before {
+
+            background-image: url(../img/icons-svg/i_search.svg);
+            background-size: 29px;
+          }*/
+    }
+    &--notify {
+        &:before {
+            background-image: url(../img/icons-svg/i_notify.svg);
+        }
+    }
+    &--plates {
+        &:before {
+            background-image: url(../img/icons-svg/i_plates.svg);
+        }
+    }
+
+    &--conversation {
+        &:before {
+            background-image: url(../img/icons-svg/i_conversation.svg);
+        }
+    }
+
+    &--actions {
+        &:before {
+            background-image: url(../img/icons-svg/i_actions.svg);
+        }
+    }
+
+
+    &--attach {
+        &:before {
+            background-image: url(../img/icons-svg/i_attach.svg);
+        }
+    }
+
+    &--people {
+        &:before {
+            background-image: url(../img/icons-svg/i_people.svg);
+        }
+    }
+
+    &--graph {
+        &:before {
+            background-image: url(../img/icons-svg/i_graph.svg);
+        }
+    }
+
+    &--ready {
+        &:before {
+            background-image: url(../img/icons-svg/i_ready.svg);
+        }
+    }
+
+    &--ready-circle {
+        &:before {
+            background-image: url(../img/icons-svg/i_ready-circle.svg);
+        }
+    }
+
+    &--docs {
+        &:before {
+            background-image: url(../img/icons-svg/i_docs.svg);
+        }
+    }
+
+    &--cube {
+        &:before {
+            background-image: url(../img/icons-svg/i_cube.svg);
+        }
+    }
+
+    &--filter {
+        &:before {
+            background-image: url(../img/icons-svg/i_filter.svg);
+
+        }
+    }
+    &--add-conversation {
+        &:before {
+            background-image: url(../img/icons-svg/i_conversation-green.svg);
+        }
+    }
+
+    &--add-doc{
+        &:before {
+            background-image: url(../img/icons-svg/i_add-doc.svg);
+        }
+    }
+
+    &--add-agreement{
+        &:before {
+            background-image: url(../img/icons-svg/i_add-agreement.svg);
+        }
+    }
+
+    &--add-place {
+        &:before {
+            background-image: url(../img/icons-svg/i_add-place-green.svg);
+        }
+    }
+
+    &--add-task{
+        &:before {
+            background-image: url(../img/icons-svg/i_add-task-green.svg);
+        }
+    }
+
+    &--envelope {
+        &:before {
+            background-image: url(../img/icons-svg/envelope.svg);
+        }
+    }
+
+    &--misc {
+        &:before {
+            background-image: url(../img/icons-svg/misc.svg);
+        }
+    }
+
+    &--add-attach{
+        &:before {
+            background-image: url(../img/icons-svg/i_add-attach-green.svg);
+        }
+    }
+
+    &--get-attach {
+        &:before {
+            background-image: url(../img/icons-svg/i_get-attach-green.svg);
+        }
+    }
+
+    &--toggle {
+        &:before {
+            background-image: url(../img/icons-svg/i_toggle-green.svg);
+        }
+    }
+
+
+
+    &--deviation {
+        background-image: url(../img/icons-svg/i_deviation.svg);
+    }
+
+    &--pdf {
+        width: 16px;
+        height: 16px;
+        background-image: url(../img/icons-svg/i_pdf.svg);
+    }
+
+    &--img {
+        width: 16px;
+        height: 16px;
+        background-image: url(../img/icons-svg/i_img.svg);
+    }
+
+
+    &--current {
+        width: 13px;
+        height: 13px;
+        background: #2395D6;
+        transform: rotate(45deg);
+
+    }
+
+    &--start-end {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        background: #E0E0E0;
+        transform: rotate(45deg);
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 9px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 5px;
+            height: 9px;
+            background: #828282;
+            border-radius: 50%;
+
+        }
+
+    }
+
+    &--prognosis {
+        height: 20px;
+        width: 1px;
+        border-left: 2px dashed  #FF001F;
+    }
+
+
+
+
+}
+
+.rotate45 {
+    transform: rotate(45deg);
+}
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+.pi-caret-up {
+    transform: rotate(180deg);
+
+    &:before {
+        content: '\e902';
+        transform: rotate(180deg);
+    }
+}

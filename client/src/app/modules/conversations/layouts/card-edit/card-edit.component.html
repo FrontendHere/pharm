@@ -1,0 +1,42 @@
+<div class="card-wrapper">
+    <div class="card">
+
+        <mat-sidenav-container class="card__container">
+
+            <mat-sidenav #sidenav mode="side"
+                         position="end"
+                         class="card__container--sidebar"
+            >
+                <app-card-history *ngIf="!isNew"></app-card-history>
+
+            </mat-sidenav>
+
+            <mat-sidenav-content class="card__container--content">
+                <!--Передать параметры шапки сервис который будет реагировать на изменения -->
+                <app-card-top-header
+                    [isNew]="isNew"
+                    (onToggleHistory)="sidenav.toggle($event)"></app-card-top-header>
+
+                <div class="row-wrapper" [perfectScrollbar]>
+
+                    <div class="route" [class.route--is-new]="isNew">
+                        <app-card-edit-steps></app-card-edit-steps>
+                    </div>
+
+                    <div class="outlet"
+                         [class.outlet--is-new]="isNew"
+                    >
+                        <div class="outlet__content">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+
+                </div>
+
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
+
+    </div>
+
+</div>

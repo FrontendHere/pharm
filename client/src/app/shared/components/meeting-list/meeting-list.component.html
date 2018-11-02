@@ -1,0 +1,46 @@
+
+<div class="card-content__block-header">Предстоящие встречи</div>
+<div class="card-content__block-content">
+    <p-accordion expandIcon="pi pi-fw pi-caret-down" collapseIcon="pi pi-fw pi-caret-up">
+        <p-accordionTab [selected]="true">
+            <p-header>
+                <div class="upcoming-meeting">
+                    <span class="upcoming-meeting__text">Обсуждение логистических сложностей</span>
+                    <span class="upcoming-meeting__date">10 июн 2018 в 10:00</span>
+                    <span class="upcoming-meeting__tasks">1 задача</span>
+                </div>
+            </p-header>
+            <div class="upcoming-meeting-body">
+                <div class="upcoming-meeting-body__left">
+                    <span class="upcoming-meeting-body__text">Выработка логистического договора</span>
+                    <span class="upcoming-meeting-body__date">16 мая 2018 в 18:00</span>
+                    <app-priority-btn [priority]="{class: 'high', text: 'Высокий'}"></app-priority-btn>
+                </div>
+                <div class="upcoming-meeting-body__right">
+                    <img src="../../../assets/img/users/maksimov.png" alt=""
+                         class="upcoming-meeting-body__photo" width="48" height="48">
+                </div>
+            </div>
+        </p-accordionTab>
+        <p-accordionTab>
+            <p-header>
+                <div class="upcoming-meeting">
+                    <span class="upcoming-meeting__text">Обсуждение нюансов в поставке сырья</span>
+                    <span class="upcoming-meeting__date">20 мая 2018 в 18:30</span>
+                    <span class="upcoming-meeting__tasks">5 задач</span>
+                </div>
+            </p-header>
+            Content 2
+        </p-accordionTab>
+        <p-accordionTab>
+            <p-header>
+                <div class="upcoming-meeting">
+                    <span class="upcoming-meeting__text">Сбой в производстве</span>
+                    <span class="upcoming-meeting__date">17 мая 2018 в 19:00</span>
+                    <span class="upcoming-meeting__tasks">2 задачи</span>
+                </div>
+            </p-header>
+            Content 3
+        </p-accordionTab>
+    </p-accordion>
+</div>

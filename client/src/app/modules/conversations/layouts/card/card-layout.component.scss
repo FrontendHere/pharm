@@ -1,0 +1,37 @@
+:host {
+    width: 100%;
+}
+
+.card-layout {
+    display: flex;
+    height: 100%;
+
+    &__container {
+        width: 100%;
+
+
+        .container__content {
+            overflow: hidden;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &--left-side {
+            position: relative;
+            width: 400px;
+            border-right: 1px solid #BDBDBD;
+            overflow: hidden;
+
+        }
+
+        &--center-content {
+
+        }
+
+    }
+
+}

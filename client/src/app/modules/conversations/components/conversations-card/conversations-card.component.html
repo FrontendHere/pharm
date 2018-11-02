@@ -1,0 +1,123 @@
+<ul class="card-conversation__list " [class.card-conversation__list--selected]="isSelected()" (click)="selectItem($event.target)">
+    <li class="card-conversation__item
+                card-conversation__item--desc
+                card-conversation__item--position
+                card-conversation__item--hover"
+        [class.selected]="isSelected()"
+
+        [class.card-conversation__item--accent]="accentIs('medicine')"
+    >
+        <span class="card-conversation__label">Препарат:</span>
+        <span class="card-conversation__text">{{item.medicine?.name || '-'}}</span>
+        <span class="card-conversation__favorite "
+              [ngClass]="{
+                'card-conversation__favorite--gray': !item.favorite,
+                'card-conversation__favorite--green': item.favorite
+              }"
+              (click)="updateFavorite($event.target)"
+        >
+            <i class="material-icons">
+            grade
+            </i>
+        </span>
+        <ul class="conversation-content-cards__actions-list">
+            <li class="conversation-content-cards__actions-item"
+                routerLinkActive="conversation-menu__item--active"
+                pTooltip="Открыть карточку переговоров"
+                tooltipPosition="top"
+                [routerLink]="['../', 'card', item.id]"
+            >
+                <div class="g-icons g-icons--toggle"></div>
+            </li>
+            <li class="conversation-content-cards__actions-item"
+                pTooltip="Добавить переговоры"
+                tooltipPosition="top"
+                (click)="handleCreate($event, 'conversation')"
+            >
+                <div class="g-icons g-icons--add-conversation"></div>
+            </li>
+            <li class="conversation-content-cards__actions-item"
+                pTooltip="Добавить встречу"
+                tooltipPosition="top"
+                (click)="handleCreate($event,'meeting')"
+            >
+                <div class="g-icons g-icons--add-place"></div>
+            </li>
+            <li class="conversation-content-cards__actions-item"
+                pTooltip="Добавить задачу"
+                tooltipPosition="top"
+                (click)="handleCreate($event, 'task')"
+            >
+                <div class="g-icons g-icons--add-task"></div>
+            </li>
+            <li class="conversation-content-cards__actions-item"
+                pTooltip="Прикрепить файл"
+                tooltipPosition="top"
+                (click)="handleCreate($event, 'attachment')"
+            >
+                <div class="g-icons g-icons--add-attach"></div>
+            </li>
+            <li class="conversation-content-cards__actions-item"
+                pTooltip="Создать отчёт"
+                tooltipPosition="top"
+                (click)="handleCreate($event, 'report')"
+            >
+                <div class="g-icons g-icons--get-attach"></div>
+            </li>
+        </ul>
+    </li
+    >
+
+    <li class="card-conversation__item card-conversation__item--desc"
+        [class.card-conversation__item--accent]="accentIs('mnn')"
+    >
+        <span class="card-conversation__label">MHH:</span>
+        <span class="card-conversation__text">{{item.mnn?.name || '-'}}</span>
+    </li>
+    <li class="card-conversation__item card-conversation__item--desc card-conversation__item"
+        [class.card-conversation__item--accent]="accentIs('nosology')">
+        <span class="card-conversation__label">Нозология:</span>
+        <span class="card-conversation__text">{{item.nosology?.name || '-'}}</span>
+    </li>
+    <li class="card-conversation__item card-conversation__item--desc card-conversation__item--wrap "
+        [class.card-conversation__item--accent]="accentIs('counterparty')">
+
+        <div class="card-conversation__contractor-wrap">
+            <span class="card-conversation__label">Контрагент:</span>
+            <!--<span class="card-conversation__text">{{item?.conv_counterparty.name}}</span>-->
+            <app-employee [org]="item.counterparties[0]" direction="rtl"></app-employee>
+        </div>
+        <!--<img src="../../../assets/img/logos/{{item.conv_counterparty.photo}}" alt="" class="card-conversation__contractor-logo">-->
+
+    </li>
+    <li class="card-conversation__item card-conversation__item--desc card-conversation__item--border-bottom">
+        <span class="card-conversation__label">Схема взаимодействия:</span>
+        <span class="card-conversation__text">{{item.interaction_schema?.name || '-'}}</span>
+    </li>
+    <li class="card-conversation__item ">
+        <app-preliminary-phase  [phase]="item?.phase"></app-preliminary-phase>
+    </li>
+    <li class="card-conversation__item card-conversation__item--wrap card-conversation__item--border-bottom">
+        <span class="card-conversation__label card-conversation__label--person">Лидер:</span>
+        <span class="card-conversation__person">
+              <app-employee [user]="item?.leader"></app-employee>
+        </span>
+
+    </li>
+    <li class="card-conversation__item">
+        <app-achievement-of-indicators [indicators]="item.indicators"></app-achievement-of-indicators>
+    </li>
+    <li class="card-conversation__item" *ngIf="countTasksOverdue() > 0 || item.risks?.length > 0">
+        <span class="card-conversation__attention">
+           <i class="material-icons">
+            error_outline
+            </i>
+            <span class="card-conversation__attention__content-item" *ngIf="countTasksOverdue() > 0">
+                {{countTasksOverdue() | plural:['просроченная задача', 'просроченные задачи', 'просроченных задач']}}
+                <div *ngFor="let risk of item.risks">{{risk}}</div>
+            </span>
+            <!--<span class="card-conversation__attention__content-item" *ngFor="let risk of item.risks"><br>{{risk}}</span>-->
+        </span>
+
+    </li>
+</ul>

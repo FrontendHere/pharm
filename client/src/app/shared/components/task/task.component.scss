@@ -1,0 +1,105 @@
+.task {
+        display: flex;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        position: relative;
+        border-bottom: 1px solid #E0E0E0;
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+
+        &-org {
+            border: 1px solid #004990;
+            border-bottom: 1px solid #004990 !important;
+            &:before {
+                content: attr(data-before);
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 8px;
+                text-transform: uppercase;
+                color: #ffffff;
+                background: #004990;
+                padding: 1px 2px;
+            }
+        }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__status {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        width: 6%;
+
+        &-success {
+            color: #27AE60;
+        }
+    }
+
+
+    &__phase {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+
+    &__left {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    &__right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        &-liable {
+            cursor: pointer;
+        }
+
+    }
+
+    &__text-wrap {
+        width: 100%;
+        display: block;
+
+        .material-icons {
+            margin: 10px;
+            font-size: 18px;
+            color: #27AE60;
+        }
+    }
+
+    &__text {
+        display: inline;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 16px;
+        letter-spacing: 0.005em;
+
+        color: #333333;
+    }
+
+    &__date {
+        margin-right: 20px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 14px;
+        letter-spacing: 0.0025em;
+
+        color: #828282;
+    }
+}

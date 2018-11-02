@@ -1,0 +1,7 @@
+<ng-container *ngFor="let item of items">
+  <a class="main-nav__item"
+     [class.conversation-menu__item--active]="isActive(item)"
+     [routerLink]="item.link">
+    <ui-icon [name]="item.icon" [materialIcon]="item.materialIcon"></ui-icon>
+  </a>
+</ng-container>

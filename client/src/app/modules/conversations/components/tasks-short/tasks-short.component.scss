@@ -1,0 +1,105 @@
+.task-unit {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    &__status {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 19px;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+
+        color: #4F4F4F;
+
+        &-expired {
+            color: #D50202;
+        }
+    }
+
+    &__date {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 0.0025em;
+
+        /* #4F4F4F */
+        color: #4F4F4F;
+    }
+
+    &__priority {
+        display: block;
+        width: 58px;
+        height: 18px;
+        padding: 4px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 10px;
+        font-size: 10px;
+        text-align: center;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        &-high {
+            background-color: #D50202;
+        }
+        &-low {
+            background-color: #E0E0E0;
+        }
+
+    }
+
+    &__body {
+        position: relative;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 14px;
+        letter-spacing: 0.005em;
+
+        /* черный */
+        color: #000000;
+
+        &-inprocess {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: -22px;
+
+                display: block;
+                height: 11px;
+                width: 11px;
+                background: white;
+                border: 1px solid #828282;
+                border-radius: 18px;
+            }
+        }
+
+        &-executed {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: -22px;
+
+                display: block;
+                height: 11px;
+                width: 11px;
+                background: #27AE60;
+                border: 1px solid #828282;
+                border-radius: 18px;
+            }
+        }
+    }
+}

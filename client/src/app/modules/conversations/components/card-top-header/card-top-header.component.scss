@@ -1,0 +1,49 @@
+.card-top-header {
+    &__wrapper {
+        width: 100%;
+        background: #FFFFFF;
+        padding: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 5px #c4c4c4;
+
+    }
+
+    &__center {
+
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+
+    }
+
+    &__right {
+        display: flex;
+        height: 30px;
+        align-items: center;
+    }
+
+    &__header {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        font-size: 24px;
+
+        color: #000000;
+    }
+
+    &__icon {
+        padding: 5px 5px 0 5px;
+        margin: 0 10px;
+        color: #219653;
+        cursor: pointer;
+
+        &--active {
+            background-color: #219653;
+            color: white;
+            border-radius: 3px;
+        }
+    }
+}

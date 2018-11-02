@@ -1,0 +1,11 @@
+<main>
+    <app-conversation-panel-block [items]="meetings" [tpl]="meetingsTpl" headerText = "Мои ближайшие встречи" footerText ="встреч"></app-conversation-panel-block>
+</main>
+
+<ng-template #meetingsTpl let-value="val">
+    <div class="meet__header">
+        <span class="meet__date">{{value.date | date: 'dd MMMM'}}</span>
+    </div>
+    <div class="meet__body">{{value.name}}</div>
+    <div class="meet__footer">{{value.conversationName}}</div>
+</ng-template>

@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-header class="projects__header">
+        {{project?.name}}
+    </mat-card-header>
+    <div class="projects__row">
+                        <span class="status-btn status-btn--in-work">
+                        <i class="material-icons">
+                            play_arrow
+                        </i>
+                        {{project?.status}}
+                        </span>
+        <app-employee [user]="project?.liable" direction="ltr" [needPosition]="true"></app-employee>
+    </div>
+    <div class="projects__row projects__row--no-flex">
+        <app-duplex-progress-bar
+            [planPercent]="project.planPercent"
+            planText="' '"
+            factText="Выполение, факт: "
+            [factPercent]="project.factPercent"
+        ></app-duplex-progress-bar>
+    </div>
+    <div class="projects__row ">
+        Получение РУ: &nbsp;<span class="projects__text">{{project?.statusRu}}</span>
+    </div>
+    <div class="projects__row">
+        Прогноз КС: &nbsp;<span class="projects__text">{{project?.forecastKS | date: 'dd.MM.yyyy'}}</span>
+    </div>
+    <div class="projects__row">
+        МНН: &nbsp;<span class="projects__text">{{project?.mnn?.name}}</span>
+    </div>
+    <div class="projects__row">
+        Глубина локализации: &nbsp;<span class="projects__text">{{project?.localizationDeep}}</span>
+    </div>
+    <div class="projects__row">
+        Партнер: &nbsp;<span class="projects__text">{{project?.partner?.name}}</span>
+    </div>
+    <div class="projects__row">
+        Завод: &nbsp;<span class="projects__text">{{project?.factory}}</span>
+    </div>
+    <div class="projects__row">
+        Бюджет проекта: &nbsp;<span class="projects__text">{{project.budget | currency: '':'руб.':'4.2-2':'ru-RU'}}</span>
+    </div>
+    <div class="projects__row">
+        Накопленные затраты: &nbsp;<span class="projects__text">{{project.accumulatedCosts | currency: '':'руб.':'4.2-2':'ru-RU'}}</span>
+    </div>
+</mat-card>

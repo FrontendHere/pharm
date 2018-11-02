@@ -1,0 +1,34 @@
+
+<ul class="conversations-layout__list">
+    <mat-sidenav-container>
+
+        <mat-sidenav mode="side" [opened]="true" #sidenav>
+
+            <li class="conversations-layout__item conversations-layout__item--left" [perfectScrollbar]>
+                <app-conversations-menu (onToggleMenubar)="sidenav.close()"></app-conversations-menu>
+            </li>
+
+        </mat-sidenav>
+
+        <mat-sidenav-content class="conversations-layout__list">
+            <ul class="conversations-layout__list">
+                <li class="conversations-layout__item conversations-layout__item--center">
+                    <app-conversations-top-controls [MenuBar]="sidenav"
+                                                    [MenuItem]="MenuItems"
+                                                    [isNeedFilter]="true"
+                                                    [isNeedToggle]="true"
+                                                    (onOpenMenuBar)="sidenav.open()"
+                    ></app-conversations-top-controls>
+                    <router-outlet ></router-outlet>
+                </li>
+                <li class="conversations-layout__item conversations-layout__item--right"  [perfectScrollbar]>
+                    <app-converstions-sidebar></app-converstions-sidebar>
+                </li>
+            </ul>
+
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+</ul>
+<app-converstaions-filter-modal></app-converstaions-filter-modal>

@@ -1,0 +1,37 @@
+.btn-calendar {
+    font-size: 13px;
+    border: 0;
+    background: #EBE9E9;
+    padding: 6px 10px;
+    border-radius: 2px;
+}
+
+.material-icons {
+    font-size: 18px;
+    font-weight: 100;
+    &.navigation-icons {
+        cursor: pointer;
+    }
+}
+
+.date-header {
+    text-transform: capitalize;
+    display: inline-block;
+    font-size: 20px;
+    padding: 0 12px;
+    margin: 0;
+}
+
+.date-selector {
+    display: inline-flex;
+}
+
+.select-current-date {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+/deep/ .filter__bth {
+    white-space: nowrap;
+}

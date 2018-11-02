@@ -1,0 +1,126 @@
+<div class="card-conversation-left-panel">
+    <!--Шапка-->
+    <div class="card-conversation-left-panel__block card-conversation-left-panel__block--header">
+        <div class="card-conversation-left-panel__header">
+            <i class="material-icons" [routerLink]="['/', 'conversations', 'cards']">
+                keyboard_backspace
+            </i>
+            <span class="card-conversation-left-panel__header-text">Переговоры</span>
+        </div>
+        <div class="card-conversation-left-panel__drugs-wrapper">
+            <div class="card-conversation-left-panel__drugs-left" [style.background-image]="'url(' + conversation.medicine.photo + ')'">
+                <!--<img src="../../../assets/img/drugs/sinagis.png" alt="" class="card-conversation-left-panel__logo"
+                     width="33" height="77">-->
+            </div>
+            <div class="card-conversation-left-panel__drugs-right">
+                <span class="card-conversation-left-panel__drugs-desc">Препарат</span>
+                <span class="card-conversation-left-panel__drugs-name">{{conversation?.medicine.name}}</span>
+            </div>
+        </div>
+    </div>
+    <!--Описание-->
+    <div class="card-conversation-left-panel__block card-conversation-left-panel__block--description">
+        <ul class="description__list">
+            <li class="description__item">
+                <span class="description__label">МНН: </span>
+                <span class="description__content">{{conversation?.mnn.name}}</span>
+            </li>
+            <li class="description__item">
+                <span class="description__label">Нозология: </span>
+                <span class="description__content">{{conversation?.nosology.name}}</span>
+            </li>
+            <li class="description__item">
+                <span class="description__label">Контрагент: </span>
+                <!--<span class="description__content">Celgene</span>
+                <img class="description__logo" src="../../../assets/img/logos/l_celgene.png" alt="" width="43" height="37">-->
+                <span class="description__content">
+                    <app-employee [org]="conversation?.counterparties[0]" direction="rtl" [bolderName]="true"></app-employee>
+
+                </span>
+
+            </li>
+            <li class="description__item">
+                <span class="description__label">Схемы взаимодействия: </span>
+                <span class="description__content description__content--auto-width">{{conversation?.interaction_schema.name}}</span>
+            </li>
+            <li class="description__item">
+                <span class="description__label">Фаза: </span>
+                <span class="description__content">
+                    <app-preliminary-phase [phase]="conversation.phase"></app-preliminary-phase>
+                </span>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="card-conversation-left-panel__block card-conversation-left-panel__block--2columns">
+        <span class="card-conversation-left-panel__label">Ожидаемая маржинальность: </span>
+        <span class="card-conversation-left-panel__text">
+            <span class="card-conversation-left-panel__marga">{{conversation.marginality}}</span> %
+        </span>
+    </div>
+    <!-- Участники -->
+
+    <div class="card-conversation-left-panel__block card-conversation-left-panel__block--partners">
+        <span class="card-conversation-left-panel__label">Участники: </span>
+        <ul class="partners__list">
+            <li class="partners__item">
+                <div class="partner__header">
+                    <!--<span class="partner__name">Celgene</span>
+                    <img src="../../../assets/img/logos/l_celgene.png" alt="" class="partner__logo" width="42"
+                         height="42">-->
+                    <app-employee [org]="conversation?.counterparties[0]" direction="rtl" [bolderName]="true"></app-employee>
+                </div>
+                <div class="partner__worker">
+                    <div class="partner__worker-name">
+                        <app-employee [needPosition]="true" [user]="conversation.leader"></app-employee>
+                    </div>
+
+                    <div class="partner__worker-position">Ответственный</div>
+                </div>
+            </li>
+            <li class="partners__item">
+                <div class="partner__header">
+                    <!--<span class="partner__name">Celgene</span>
+                    <img src="../../../assets/img/logos/l_celgene.png" alt="" class="partner__logo" width="42"
+                         height="42">-->
+                    <app-employee [org]="conversation?.counterparties[0]" direction="rtl" [bolderName]="true"></app-employee>
+                </div>
+                <div class="partner__worker">
+                    <div class="partner__worker-name">
+                        <app-employee [needPosition]="true" [user]="conversation.leader"></app-employee>
+                    </div>
+
+                    <div class="partner__worker-position">Лидер</div>
+                </div>
+                <div class="partner__worker">
+                    <div class="partner__worker-name">
+                        <app-employee [needPosition]="true" [user]="conversation.administrator"></app-employee>
+                    </div>
+
+                    <div class="partner__worker-position">Администратор</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="card-conversation-left-panel__block card-conversation-left-panel__block--actions">
+        <div class="conversation-actions">
+            <div class="conversation-actions__list">
+                <a class="conversation-actions__item conversation-actions__item--add-conversation"
+                   [routerLink]="['edit']"
+                   routerLinkActive="conversation-actions__item--active"
+                >Заполнить резюме</a>
+                <a
+                    class="conversation-actions__item conversation-actions__item--add-meet"
+                    [routerLink]="['/', 'conversations', 'new-event']"
+                    routerLinkActive="conversation-actions__item--active"
+                >Добавить встречу</a>
+                <a class="conversation-actions__item conversation-actions__item--add-task">Добавить задачу</a>
+                <a class="conversation-actions__item conversation-actions__item--add-attach">Прикрепить файл</a>
+                <a class="conversation-actions__item conversation-actions__item--add-report">Создать отчет</a>
+                <a class="conversation-actions__item conversation-actions__item--arhiv">Архивировать переговоры</a>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,163 @@
+<!--<p-dialog [(visible)]="visible"-->
+<!--modal="modal"-->
+<!--[responsive]="false"-->
+
+<!--[appendTo]="'body'"-->
+<!--[autoZIndex]="true"-->
+<!--styleClass="modal-actual"-->
+<!--&gt;-->
+<!--    <p *ngIf="_modalActialService.data.length === 0" class="modal-actual__no-data">Нет изменений Actual</p>-->
+<mat-dialog-content>
+    <div id="modalFilter" class="modal-conversation-filter">
+        <div class="modal-select__group-wrapper">
+
+            <div class="modal-select__wrapper">
+                <mat-form-field class="modal-select__input" *ngIf="isVisibleAllFilters">
+                    <mat-select [(ngModel)]="groupingFilter.projects" placeholder="Проекты" [multiple]="true"
+                                #multiSelect>
+                        <ngx-mat-select-search [formControl]="projects"
+                                               placeholderLabel="Проекты"></ngx-mat-select-search>
+                        <mat-option *ngFor="let p of searchedProjects | async" [value]="p">
+                            {{p.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input">
+                    <mat-select [(ngModel)]="groupingFilter.counterparties"   placeholder="Контрагенты" [multiple]="true"
+                                #multiSelect>
+                        <ngx-mat-select-search [formControl]="counterparties"
+                                               placeholderLabel="Контрагенты"></ngx-mat-select-search>
+                        <mat-option *ngFor="let c of searchedCounterparties | async" [value]="c">
+                            {{c.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input">
+                    <mat-select [(ngModel)]="groupingFilter.leaders" placeholder="Лидеры" [multiple]="true"
+                                #multiSelect>
+                        <ngx-mat-select-search [formControl]="leaders"
+                                               placeholderLabel="Лидеры"></ngx-mat-select-search>
+                        <mat-option *ngFor="let l of searchedLeaders | async" [value]="l">
+                            {{l.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input">
+                    <mat-select [(ngModel)]="groupingFilter.mnns" placeholder=МНН [multiple]="true"
+                                #multiSelect>
+                        <ngx-mat-select-search [formControl]="mnns" placeholderLabel="МНН"></ngx-mat-select-search>
+                        <mat-option *ngFor="let m of searchedMNNS | async" [value]="m">
+                            {{m.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input" *ngIf="isVisibleAllFilters">
+                    <mat-select [(ngModel)]="groupingFilter.administrators" placeholder="Администраторы"
+                                [multiple]="true"
+                                #multiSelect>
+                        <ngx-mat-select-search [formControl]="administrators"
+                                               placeholderLabel="Администраторы"></ngx-mat-select-search>
+                        <mat-option *ngFor="let a of searchedAdministrators | async" [value]="a">
+                            {{a.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input" *ngIf="isVisibleAllFilters">
+                    <mat-select [(ngModel)]="groupingFilter.subdivisions" placeholder="Подразделения" [multiple]="true"
+                                #multiSelect>
+                        <ngx-mat-select-search [formControl]="subdivisions"
+                                               placeholderLabel="Подразделения"></ngx-mat-select-search>
+                        <mat-option *ngFor="let s of searchedSubdivisions | async" [value]="s">
+                            {{s.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input">
+                    <mat-select [(ngModel)]="groupingFilter.medicines" placeholder="Препараты" [multiple]="true"
+                                #multiSelect>
+                        <ngx-mat-select-search [formControl]="medicines"
+                                               placeholderLabel="Препараты"></ngx-mat-select-search>
+                        <mat-option *ngFor="let m of searchedMedicines | async" [value]="m">
+                            {{m.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input">
+                    <mat-select [(ngModel)]="groupingFilter.phases" placeholder="Фазы" [multiple]="true"
+                                #multiSelect>
+                        <ngx-mat-select-search [formControl]="phases" placeholderLabel="Фазы"></ngx-mat-select-search>
+                        <mat-option *ngFor="let p of searchedPhases| async" [value]="p">
+                            {{p.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input" *ngIf="isVisibleAllFilters" >
+                    <input matInput [matDatepicker]="picker" [(ngModel)] ="startDate" placeholder="Дата начала">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="modal-select__input" *ngIf="isVisibleAllFilters">
+                    <input matInput [matDatepicker]="picker" [(ngModel)] ="finishDate" placeholder="Дата окончания">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+        </div>
+        <div class="modal-all-filter-wrapper">
+            <div class="modal-all-filter__control" (click)="viewAllFilters()">
+                <i class="material-icons">
+                    more_horiz
+                </i>
+                {{filterCommandContent}}
+            </div>
+        </div>
+        <div class="modal-controls">
+            <mat-dialog-actions>
+                <div class="modal-controls__wrapper">
+                    <div class="modal-controls__group">
+                        <div class="modal-controls__header">Группировка</div>
+                        <mat-radio-group class="modal-controls__radio" [(ngModel)]="groupingFilter.grouping">
+                            <mat-radio-button value="counterparties">По контрагентам</mat-radio-button>
+                            <mat-radio-button value="medicine">По препаратам</mat-radio-button>
+                            <mat-radio-button value="leader">По лидерам</mat-radio-button>
+                            <!--<input type="checkbox" name="remember" id="remember3"> <label for="remember3" class="modal-controls__label">По лидерам</label>-->
+                        </mat-radio-group>
+                    </div>
+                    <mat-checkbox value="favorite" [(ngModel)]="groupingFilter.favorite">Избранные</mat-checkbox>
+                    <!--<div class="modal-controls__all-filter">-->
+                    <!--<i class="material-icons">-->
+                    <!--more_horiz-->
+                    <!--</i>-->
+                    <!--Все фильтры-->
+                    <!--</div>-->
+                </div>
+            </mat-dialog-actions>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-btns">
+                <span class="g-btns g-btns--success" (click)="apply()">Применить</span>
+                <span class="g-btns"  (click)="cancel()">Очистить</span>
+            </div>
+            <div class="modal-save-view">
+                <i class="material-icons">
+                    playlist_add_check
+                </i>
+                <span class="modal-save-view__text">Сохранить представление</span>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<!--</p-dialog>-->
+
+

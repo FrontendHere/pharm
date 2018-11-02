@@ -1,0 +1,36 @@
+<!--<app-header (onToggleMenu)="sideNav.toggle($event)"></app-header>-->
+<app-header></app-header>
+
+<div class="share-layout">
+    <!--<mat-sidenav-container class="share-layout__container">
+
+        <mat-sidenav #sideNav mode="side" [opened]="true">
+
+            <div class="share-layout__menu">
+                <app-main-nav></app-main-nav>
+            </div>
+
+        </mat-sidenav>
+
+        <mat-sidenav-content class="share-layout__content-layout">
+
+            <router-outlet></router-outlet>
+
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>-->
+
+
+    <div class="share-layout__container">
+
+        <div class="share-layout__menu">
+            <app-main-nav></app-main-nav>
+        </div>
+
+        <div class="share-layout__content-layout">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+
+</div>

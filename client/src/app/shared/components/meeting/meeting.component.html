@@ -1,0 +1,22 @@
+<main class="meeting">
+    <div class="meeting__indicator"></div>
+    <div class="meeting__info">
+        <div class="meeting__info-date">
+            {{meeting.date | date: 'dd MMMM yyyy в hh:mm'}}
+        </div>
+        <div class="meeting__info-text">
+            {{meeting.name}}
+        </div>
+    </div>
+    <div class="meeting__task-count">
+        <div *ngIf="completedAll" class="meeting__task-count-icon">
+            <i class="material-icons" >
+                check_circle_outline
+            </i>
+        </div>
+        <div class="meeting__task-count-text meeting__task-count-text-simple">
+            <span>{{meeting?.tasks.length}}</span>
+            <span>задач</span>
+        </div>
+    </div>
+</main>

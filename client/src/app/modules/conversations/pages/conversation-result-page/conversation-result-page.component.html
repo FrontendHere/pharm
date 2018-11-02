@@ -1,0 +1,98 @@
+<div class="card-content__wrapper">
+    <div class="card-content__wrapper">
+        <div class="card-content__left">
+            <mat-card class="drug-card card-content__block">
+                <mat-card-header class="drug-card__header">Сводка</mat-card-header>
+                <div class="drug-card__list">
+                    <div class="drug-card__item">
+                        <span class="drug-card__label">МНН:</span>
+                        <span class="drug-card__text">{{(conversation | async)?.mnn.name}}</span>
+                    </div>
+                    <div class="drug-card__item">
+                        <span class="drug-card__label">Нозология:</span>
+                        <span class="drug-card__text">{{(conversation | async)?.nosology.name}}</span>
+                    </div>
+                    <div class="drug-card__item">
+                        <span class="drug-card__label">Ожидаемая дата регистрации:</span>
+                        <span class="drug-card__text">{{(conversation | async)?.expectedRegisterDate | date: 'dd MMMM yyyy г.'}}</span>
+                    </div>
+                    <div class="drug-card__item drug-card__item--concurents">
+                        <span
+                            class="drug-card__label">Конкуренты ({{(conversation | async)?.competitors.length}}):</span>
+                        <ul class="drug-card-concurents__list">
+                            <li class="drug-card-concurents__item"
+                                *ngFor="let competitor of (conversation | async)?.competitors">
+                                <app-employee [org]="competitor" direction="rtl"></app-employee>
+                        </ul>
+                    </div>
+                    <div class="drug-card__item">
+                        <span class="drug-card__label">Описание:</span>
+                        <span class="drug-card__text">
+                              {{(conversation | async)?.description}}
+                            </span>
+                    </div>
+                </div>
+            </mat-card>
+            <mat-card class="card-content__block">
+                <mat-card-header class="card-content__block-header">Текущие показатели</mat-card-header>
+                <app-table-indicators></app-table-indicators>
+            </mat-card>
+        </div>
+
+        <div class="card-content__right">
+            <app-meetings-list header="Предстоящие встречи" [meetings]="(conversation | async)?.meetings" ></app-meetings-list>
+
+            <mat-card class="card-content__block">
+                <mat-card-header class="card-content__block-header">Задачи по процессу</mat-card-header>
+                <div class="card-content__block-content">
+                    <div class="tasks-process__list">
+                        <div class="tasks-process__list-item" *ngFor="let task of (conversation | async)?.tasks">
+                            <app-task
+                                [task]="task"
+                            ></app-task>
+                        </div>
+                    </div>
+
+                </div>
+            </mat-card>
+        </div>
+
+
+        <mat-card class="card-content__center">
+            <milestones [events]="(conversation | async)?.milestones"></milestones>
+        </mat-card>
+        <div class="card-content__left">
+            <mat-card class="card-content__block">
+                <mat-card-header class="card-content__block-header">Риски проекта</mat-card-header>
+                <div class="card-content__block-content card-content__block-content--padding">
+                    <div class="attention" *ngFor="let risk of (conversation | async)?.risks">
+                        <i class="material-icons">
+                            error_outline
+                        </i>
+                        <span class="attention__text">{{risk}}</span>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="card-content__right">
+            <mat-card class="card-content__block">
+                <mat-card-header class="card-content__block-header">Документы</mat-card-header>
+                <div class="card-content__block-content card-content__block-content--padding">
+                    <ul class="attach__list">
+                        <li class="attach__item" *ngFor="let doc of (conversation | async)?.documents">
+                            <div class="attach__left">
+                                <div class="g-icons g-icons--{{doc.extension}}"></div>
+                                <span class="attach__text">{{doc.name}} </span>
+                                <span class="attach__size">{{doc.size}}</span>
+                            </div>
+                            <div class="attach__right">
+                                <span class="attach__date">{{doc.date | date: 'dd.MM.YY hh:mm'}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

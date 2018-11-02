@@ -1,0 +1,33 @@
+<header class="page-header">
+    <div class="page-header__position page-header__position--left">
+        <div class="main-nav__toggle"
+             [class.main-nav__toggle--active]="openedMenu"
+             (click)="toggleMenu()">Открыть меню</div>
+        <img src="../../../assets/img/logo.svg" alt="ФСТ. База знанинй" class="logo" width="170" height="32">
+    </div>
+    <div class="page-header__position page-header__position--center">
+
+    </div>
+    <div class="page-header__position page-header__position--right">
+        <ul class="icons__list">
+            <li class="icons__item">
+                <div class="g-icons g-icons--search">
+                    <i class="material-icons">
+                        search
+                    </i>
+                </div>
+            </li>
+            <li class="icons__item">
+                <a class="">
+                    <div class="g-icons g-icons--notify"></div>
+                    <span class="notify__count">9+</span>
+                </a>
+            </li>
+        </ul>
+        <div class="page-header__profile">
+            <a class="profile">
+                <img class="profile__img" src="../../../assets/img/profile.png" alt="Пользователь 1" width="44" height="44">
+            </a>
+        </div>
+    </div>
+</header>

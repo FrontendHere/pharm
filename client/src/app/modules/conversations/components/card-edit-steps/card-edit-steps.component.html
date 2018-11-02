@@ -1,0 +1,13 @@
+<div class="steps-list">
+
+    <div class="steps-list__item" *ngFor="let step of steps"
+         [routerLink]="[step.route]"
+         [routerLinkActiveOptions]= "{exact: true}"
+         routerLinkActive="steps-list__item--activate"
+    >
+        <span class="link">
+            {{step.title}}
+        </span>
+    </div>
+
+</div>

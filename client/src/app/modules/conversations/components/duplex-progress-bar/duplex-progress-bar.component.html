@@ -1,0 +1,24 @@
+<div class="progress-bar">
+    <div class="progress-bar__fact">
+        <div class="progress-bar__fact-text" *ngIf="_factText">{{_factText}} <span class="progress-bar__number">{{_factPercent | appNumeral: '0,0'}}<span
+            class="progress-bar__number-suffix">%</span></span></div>
+        <div class="progress-bar__bar-container">
+            <div class="progress-bar__bar" [ngStyle]="{'width.%': _factPercent > 100 ? 100 : _factPercent}"
+                 [ngClass]="{'progress-bar__bar_green-bg': _factPercent >= _planPercent, 'progress-bar__bar_red-bg': _factPercent < _planPercent}"
+            >
+                <div class="progress-bar__bar-delta"
+                     [ngClass]="{'progress-bar__bar-delta-max': _factPercent >= 100}"
+                     *ngIf="delta">{{delta > 0 ? '+' : ''}}{{delta | appNumeral:
+                    '0,0'}}%
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="progress-bar__plan" *ngIf="_planPercent != null && _planText">
+        <div class="progress-bar__bar-container _gray-border">
+            <div class="progress-bar__bar progress-bar__bar_gray-bg"
+                 [ngStyle]="{'width.%': _planPercent > 100 ? 100 : _planPercent}"></div>
+        </div>
+     <!--   <div class="progress-bar__plan-text" *ngIf="_planText">{{_planText}} {{_planPercent | appNumeral: '0,0'}}%</div>-->
+    </div>
+</div>

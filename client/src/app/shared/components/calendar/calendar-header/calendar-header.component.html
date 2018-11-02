@@ -1,0 +1,36 @@
+<div class="row text-center">
+    <div class="col-md-4 text-left">
+        <div class="date-selector">
+            <div
+                class="btn btn-outline-secondary btn-calendar"
+                mwlCalendarToday
+                [(viewDate)]="viewDate"
+                (viewDateChange)="viewDateChange.next(viewDate)">
+                Сегодня
+            </div>
+            <div class="select-current-date">
+                <i mwlCalendarPreviousView
+                   [view]="view"
+                   [(viewDate)]="viewDate"
+                   (viewDateChange)="viewDateChange.next(viewDate)"
+                   class="material-icons navigation-icons">
+                    keyboard_arrow_left
+                </i>
+                <h3 class="date-header">{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+                <i mwlCalendarNextView
+                   [view]="view"
+                   [(viewDate)]="viewDate"
+                   (viewDateChange)="viewDateChange.next(viewDate)"
+                   class="material-icons navigation-icons">
+                    keyboard_arrow_right
+                </i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <ui-radio-group [items]="header?.center"></ui-radio-group>
+    </div>
+    <div class="col-md-3">
+        <ui-radio-group [items]="header?.right"></ui-radio-group>
+    </div>
+</div>

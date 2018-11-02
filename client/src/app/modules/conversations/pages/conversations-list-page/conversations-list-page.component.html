@@ -1,0 +1,87 @@
+<div class="conversation-list__wrapper" [perfectScrollbar]>
+    <div *ngFor="let group of groups | async">
+        <app-conversation-grouping
+            [header]="group"
+            [groupingType]="(conversationsGrouping | async).groupingType "
+        >
+            <div class="conversation-list">
+
+                <table mat-table [dataSource]="(conversationsGrouping | async).dictionaries[group]"
+                       class="mat-elevation-z8">
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element"
+                            (click)="highlight(element, $event)"
+                            [ngClass]="{'conversation-list__action-wrap--border-left': isSelected(element.id)}"
+                        >
+          <span class="conversation-list__action-wrap"
+                [ngClass]="{'conversation-list__action-wrap--gray': !element.favorite,
+                            'conversation-list__action-wrap--green': element.favorite}">
+          <i class="material-icons" (click)="updateFavorites(element)">
+            star
+          </i>
+          <app-preliminary-phase [needShort]="true"
+                                 [phase]="element.phase"></app-preliminary-phase>
+          </span>
+
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="drugname">
+                        <th mat-header-cell *matHeaderCellDef> Препарат</th>
+                        <td mat-cell *matCellDef="let element"
+                            (click)="highlight(element, $event)"
+                            [ngClass]="{'conversation-list__action-wrap--border': isSelected(element.id)}">
+                            {{element.medicine?.name}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="mhh">
+                        <th mat-header-cell *matHeaderCellDef> МНН</th>
+                        <td mat-cell *matCellDef="let element"
+                            (click)="highlight(element, $event)"
+                            [ngClass]="{'conversation-list__action-wrap--border': isSelected(element.id)}">
+                            {{element.mnn?.name}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="nozology">
+                        <th mat-header-cell *matHeaderCellDef> Нозология</th>
+                        <td mat-cell *matCellDef="let element"
+                            (click)="highlight(element, $event)"
+                            [ngClass]="{'conversation-list__action-wrap--border': isSelected(element.id)}">
+                            {{element.nosology?.name}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="contractor">
+                        <th mat-header-cell *matHeaderCellDef> Контрагент</th>
+                        <td mat-cell *matCellDef="let element"
+                            (click)="highlight(element, $event)"
+                            [ngClass]="{'conversation-list__action-wrap--border': isSelected(element.id)}">
+                            <div *ngFor="let c of element.counterparties">
+                                {{c.name}}
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="user">
+                        <th mat-header-cell *matHeaderCellDef> Лидер</th>
+                        <td mat-cell *matCellDef="let element" (click)="highlight(element, $event)"
+                            [ngClass]="{'conversation-list__action-wrap--border-right': isSelected(element.id)}">
+                            <app-employee [user]="element.leader"></app-employee>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"
+
+                    >
+                    </tr>
+                </table>
+            </div>
+        </app-conversation-grouping>
+    </div>
+</div>
+
+

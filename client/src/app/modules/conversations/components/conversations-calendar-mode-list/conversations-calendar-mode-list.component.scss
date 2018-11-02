@@ -1,0 +1,124 @@
+
+.calendar {
+
+  &__types {
+    position: absolute;
+    right: 0;
+  }
+
+  &__mode {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+
+    &-list {
+      display: flex;
+      min-height: 35px;
+
+    }
+
+    &-item {
+      padding: 10px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      font-size: 13px;
+      text-align: center;
+      letter-spacing: 0.02em;
+      background: #EBE9E9;
+
+      cursor: pointer;
+      color: #4F4F4F;
+
+      &:first-of-type {
+        border-radius: 2px 0px 0px 2px;
+      }
+
+      &:last-of-type{
+        border-radius: 0px 2px 2px 0px;
+      }
+
+      &:hover {
+        background: #219653;
+        color: #FFFFFF;
+        opacity: 0.7;
+      }
+
+      &--active {
+        background: #219653;
+        color: #FFFFFF;
+      }
+    }
+  }
+  &__moth-back {
+    position: relative;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 0px;
+      width: 8px;
+      height: 8px;
+      border-color: transparent;
+
+      border-bottom: 2px solid #636362;
+      border-left: 2px solid #636362;
+
+      transform: rotate(45deg);
+    }
+  }
+
+  &__moth-forward {
+    position: relative;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      right: 0px;
+      width: 8px;
+      height: 8px;
+      border-color: transparent;
+
+      border-bottom: 2px solid #636362;
+      border-left: 2px solid #636362;
+
+      transform: rotate(-135deg);
+    }
+  }
+
+  &__moth-toggle {
+    position: absolute;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+  }
+  &___moth-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-size: 20px;
+    letter-spacing: 0.0015em;
+
+    color: #4F4F4F;
+  }
+}
+

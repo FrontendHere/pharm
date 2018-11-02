@@ -1,0 +1,18 @@
+<div class="conversation-cards-list" [perfectScrollbar]>
+    <div *ngFor="let group of groups | async">
+        <app-conversation-grouping
+            [header]="group"
+            [groupingType]="(conversationsGrouping | async).groupingType"
+        >
+            <ul class="conversation-cards-list__list">
+                <li class="conversation-cards-list__item" *ngFor="let item of (conversationsGrouping | async).dictionaries[group]">
+                    <app-conversations-card [item]="item"></app-conversations-card>
+                </li>
+            </ul>
+
+        </app-conversation-grouping>
+    </div>
+
+</div>
+
+

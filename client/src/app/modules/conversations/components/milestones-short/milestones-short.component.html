@@ -1,0 +1,10 @@
+<main>
+    <app-conversation-panel-block [items]="milestones" [tpl]="eventsTpl" headerText = "Скоро" footerText ="событий"></app-conversation-panel-block>
+</main>
+<ng-template #eventsTpl let-value="val">
+    <div class="event__header">
+        <span class="event__date">{{value.date | date: 'DD MMMM'}}</span>
+    </div>
+    <div class="event__body">{{value.name}}</div>
+    <div class="event__footer">{{value.conversationName}}</div>
+</ng-template>

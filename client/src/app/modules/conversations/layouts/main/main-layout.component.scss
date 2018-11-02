@@ -1,0 +1,48 @@
+:host {
+    width: 100%;
+    overflow: hidden;
+}
+
+.conversations-layout {
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        height: 100%;
+        margin-top: 0;
+        overflow: hidden;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &--left {
+            position: relative;
+            width: 292px;
+            min-width: 292px;
+            //width: 320px;
+            border-right: 1px solid #BDBDBD;
+            overflow: hidden;
+
+        }
+
+
+        &--center {
+            width: calc(100vw);
+        }
+
+        &--right {
+            position: relative;
+            width: 364px;
+            min-width: 364px;
+            overflow: hidden;
+        }
+    }
+
+    &__content-wrapper {
+        padding: 24px;
+
+    }
+}

@@ -1,0 +1,25 @@
+<div class="card-layout">
+    <mat-sidenav-container class="card-layout__container" >
+
+        <mat-sidenav [opened]="!isNew"
+                      mode="side"
+        >
+            <div *ngIf="!isNew"
+                class="card-layout__item card-layout__item--left-side"
+                 [perfectScrollbar]>
+                <app-card-conversation-left-panel></app-card-conversation-left-panel>
+            </div>
+
+        </mat-sidenav>
+
+        <mat-sidenav-content class="container__content">
+
+            <div class="card-layout__item card-layout__item--center-content">
+                <router-outlet></router-outlet>
+            </div>
+
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+</div>

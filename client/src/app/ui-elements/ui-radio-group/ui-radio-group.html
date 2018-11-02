@@ -1,0 +1,7 @@
+<ng-container *ngFor="let item of items;">
+    <span [class.filter__bth]="true"
+          [class.filter__bth--active]="item.selected"
+          (click)="checkItem(item)">
+        {{item.title}}
+    </span>
+</ng-container>

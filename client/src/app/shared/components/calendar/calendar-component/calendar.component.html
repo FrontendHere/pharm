@@ -1,0 +1,85 @@
+<calendar-header
+    [header]="header"
+    [(view)]="view"
+    [(viewDate)]="viewDate"
+    [locale]="locale"></calendar-header>
+<!--Header block-->
+<div class="shadow-sm">
+    <!--Badges block-->
+    <div class="table-info" *ngIf="config.showBadges">
+        <div class="badges">
+            <div class="badge">
+                <ui-icon name="task"></ui-icon> Задачи
+            </div>
+            <div class="badge">
+                <ui-icon name="meet"></ui-icon> Встречи
+            </div>
+            <div class="badge">
+                <ui-icon name="misc"></ui-icon> Вехи
+            </div>
+            <div class="badge transparent">
+                <ui-icon name="envelope"></ui-icon> Встречи Outlook
+            </div>
+        </div>
+    </div>
+    <!--Views block-->
+    <div [ngSwitch]="originalView">
+        <mwl-calendar-month-view
+            *ngSwitchCase="'month'"
+            [weekStartsOn]="1"
+            [events]="events"
+            [locale]="locale"
+            [viewDate]="viewDate"
+            [refresh]="refresh"
+            [cellTemplate]="customCellTemplate"
+            (beforeViewRender)="beforeMonthViewRender($event)"
+            (dayClicked)="handleDayClicked($event)"
+            [activeDayIsOpen]="false">
+        </mwl-calendar-month-view>
+        <mwl-calendar-week-view
+            *ngSwitchCase="'week'"
+            [weekStartsOn]="1"
+            [viewDate]="viewDate"
+            [events]="events"
+            [locale]="locale"
+            [weekStartsOn]="weekStartsOn"
+            [weekendDays]="weekendDays">
+        </mwl-calendar-week-view>
+        <mwl-calendar-day-view
+            *ngSwitchCase="'day'"
+            [viewDate]="viewDate"
+            [events]="events"
+            [locale]="locale">
+        </mwl-calendar-day-view>
+        <calendar-group-view
+            *ngSwitchCase="'agent'"
+            [(viewDate)]="viewDate">
+        </calendar-group-view>
+        <milestones
+            *ngSwitchCase="'misc'"
+            [title]="milestonesTitle"
+            [events]="milestones">
+        </milestones>
+        <meeting-list
+            *ngSwitchCase="'schedule'"
+            [events]="events"></meeting-list>
+    </div>
+</div>
+
+<!--Overrides block-->
+<ng-template #customCellTemplate let-day="day" let-locale="locale">
+    <div class="cal-cell-top">
+        <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+    </div>
+    <div class="event" [class.done]="event.done" *ngFor="let event of day.events | slice:0:3">
+        <ui-icon [name]="event.meta.type"></ui-icon>
+        <span>{{event.title}}</span>
+    </div>
+    <div class="cell-totals">
+        <ui-icon
+            *ngFor="let group of day.eventGroups"
+            [name]="group[0]">
+            <span>{{ group[1].length }}</span>
+        </ui-icon>
+    </div>
+</ng-template>

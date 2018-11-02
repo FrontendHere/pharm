@@ -1,0 +1,52 @@
+.employee {
+    &__info {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        padding-bottom: 11px;
+        &__contacts {
+
+            &-item {
+                display: flex;
+                align-items: center;
+                &-icon {
+                    color: #219653;
+                    font-size: 12px;
+                }
+                &-text {
+                    font-family: 'Roboto';
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: #000000;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    &__action {
+        padding-top: 10px;
+        border-top: 1px solid #E0E0E0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        color: #219653;
+
+        &-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        &-icon {
+            font-size: 14px;
+            line-height: 20px;
+        }
+        &-text {
+            font-family: 'Roboto';
+            line-height: 14px;
+            font-size: 12px;
+        }
+    }
+}

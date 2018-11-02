@@ -1,0 +1,132 @@
+:host {
+
+    width: 100%;
+    display: block;
+
+    background: white;
+    box-shadow: 0 0 5px #c4c4c4;
+
+    padding: 30px 30px 30px 60px;
+
+}
+
+.form-header {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    padding-bottom: 50px;
+
+}
+
+.form-list {
+
+    &__item {
+        padding: 10px 0;
+        border-top: 1px solid #C4C4C4;
+        display: flex;
+        justify-content: space-between;
+
+        &--label {
+            flex-basis: 30%;
+            font-family: Roboto;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: #4F4F4F;
+            padding: 5px 0;
+            align-self: center;
+
+            &--top {
+                align-self: baseline;
+            }
+            &--center {
+                align-self: center;
+            }
+            &--bottom {
+                align-self: flex-end;
+            }
+        }
+
+        &--content {
+            flex-basis: 70%;
+        }
+
+        .radio-group {
+
+            &__button {
+                padding: 5px;
+
+                /deep/ .mat-radio-label {
+                    white-space: normal;
+                }
+            }
+
+        }
+
+        &__input {
+            padding: 0 5px;
+            width: 100%;
+            background-color: #F2F2F2;
+
+            &--narrow {
+                width: auto;
+            }
+
+            &--white {
+                background-color: white;
+            }
+
+            &--gray {
+
+            }
+        }
+
+        &__multi-complete {
+            padding: 10px 0;
+
+            .multi-container {
+
+                &__item{
+                    border-bottom: 1px solid #c4c4c4;
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+
+                }
+            }
+
+            .multi-controls {
+                padding: 10px 0;
+
+                &__button {
+
+                }
+            }
+
+
+            &__item {
+                padding: 10px 0;
+                display: flex;
+                justify-content: space-between;
+
+                &__delete {
+                    cursor: pointer;
+                }
+
+            }
+
+            &__button {
+
+                border-radius: 30px;
+                outline: none;
+                background-color: #d1f5df;
+                color: #219653;
+
+            }
+
+        }
+
+    }
+
+}

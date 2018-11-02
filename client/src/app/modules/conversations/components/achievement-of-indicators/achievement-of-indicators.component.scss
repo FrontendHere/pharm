@@ -1,0 +1,35 @@
+.indicators {
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 6px;
+    margin-top: 6px;
+      overflow: hidden;
+  }
+
+  &__item {
+    height: 24px;
+    margin-right: 5px;
+  }
+
+  &__indicator {
+    position: relative;
+    line-height: normal;
+    font-size: 20px;
+    text-align: center;
+
+    /* Красный */
+    color: #D50202;
+
+    &--ready {
+      color: #219653;
+    }
+  }
+}
+
+.conversation-content-cards {
+    &__text {
+        font-size: 12px;
+    }
+}
+

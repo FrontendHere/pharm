@@ -1,0 +1,4 @@
+@mixin icon_mixin($icon-name) {
+    background-image: url("assets/img/icons-svg/" + $icon-name + ".svg");
+    background-size: cover;
+}

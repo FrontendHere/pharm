@@ -1,0 +1,101 @@
+<div class="form-header">Основные сведения</div>
+<div class="form-list" [formGroup]="formGroup">
+
+    <div class="form-list__item" *ngFor="let field of autocompleteInputs">
+        <div class="form-list__item--label form-list__item--label--{{field?.style?.labelPostitionClass || 'center'}}">
+            {{field.label}}
+        </div>
+        <div class="form-list__item--content">
+            <span [ngSwitch]="field.inputType">
+
+                <ng-template ngSwitchCase="radio-button">
+                    <mat-radio-group class="radio-group" [formControlName]="field.formControlName">
+                        <mat-radio-button class="radio-group__button"
+                                          color="primary"
+                                          *ngFor="let item of phases" [value]="item.id">
+                            {{item.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </ng-template>
+
+                <ng-template ngSwitchCase="autocomplete">
+                    <mat-form-field class="form-list__item__input"
+                                    [class.form-list__item__input--white]="field?.style?.background || false"
+                                    [class.form-list__item__input--narrow]="field?.style?.narrow || false"
+                                    floatLabel="never">
+                        <input matInput
+                               color="primary"
+                               [placeholder]="field.placeholder"
+                               [matAutocomplete]="auto"
+                               [formControlName]="field.formControlName">
+                        <mat-autocomplete #auto="matAutocomplete"
+                                          [displayWith]="displayAutoInput"
+                        >
+                            <mat-option *ngFor="let item of getDictionary(field.formControlName) | async"
+                                        [value]="item"
+                            >{{item.name}}</mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+                    <div *ngIf="field.multi?.component || false" class="form-list__item__multi-complete">
+
+                        <div class="multi-container">
+                            <div
+                                *ngFor="let item of getCheckedListBy(field.formControlName)"
+                                class="form-list__item__multi-complete__item multi-container__item"
+                            >
+                                <span appInsertComponentTo
+                                      [value]="item"
+                                      [field]="field.multi.inputField"
+                                      [component]="field.multi.component">
+                                </span>
+                                <i class="material-icons form-list__item__multi-complete__item__delete"
+                                   (click)="deleteFromList(field.formControlName, item)">delete</i>
+                            </div>
+                        </div>
+                        <div class="multi-controls">
+                            <button mat-flat-button
+                                    class="form-list__item__multi-complete__button multi-controls__button"
+                                    (click)="addItemIntoList(field.formControlName)"
+                            >{{field.multi.phrase}}</button>
+                        </div>
+
+
+
+
+                    </div>
+
+                </ng-template>
+
+                <ng-template ngSwitchCase="date">
+                    <mat-form-field class="form-list__item__input"
+                                    [class.form-list__item__input--white]="!field?.style?.background || false"
+                                    [class.form-list__item__input--narrow]="field?.style?.narrow || false"
+                                    floatLabel="never">
+                        <input matInput [matDatepicker]="picker" [formControlName]="field.formControlName">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+
+                    </mat-form-field>
+                </ng-template>
+
+                <ng-template ngSwitchCase="text">
+                    <mat-form-field class="form-list__item__input" floatLabel="never">
+                        <input matInput [placeholder]="field.placeholder" [formControlName]="field.formControlName"/>
+                    </mat-form-field>
+                </ng-template>
+
+                <ng-template ngSwitchCase="big-text">
+                    <mat-form-field class="form-list__item__input" floatLabel="never">
+                        <textarea matInput [placeholder]="field.placeholder"
+                                  [formControlName]="field.formControlName"></textarea>
+                    </mat-form-field>
+                </ng-template>
+
+
+            </span>
+        </div>
+    </div>
+
+
+</div>

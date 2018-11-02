@@ -1,0 +1,22 @@
+<main>
+    <app-conversation-panel-block [items]="tasks" [tpl]="tasksTpl" headerText="Задачи моих подразделений"
+                                  footerText="задач"></app-conversation-panel-block>
+</main>
+
+<ng-template #tasksTpl let-value="val">
+    <div class="task-unit__header">
+        <span [ngSwitch]="value.expired">
+        <span *ngSwitchCase="true" class="task-unit__status task-unit__status-expired"
+        >Просрочено</span>
+        <span *ngSwitchCase="false" class="task-unit__status"
+        >Срок: {{value.deadline | date: 'dd MMMM'}}</span>
+        </span>
+        <span class="task-unit__priority"
+        [ngClass]="{
+        'task-unit__priority-high': value.priority === 'Высокий',
+        'task-unit__priority-low': value.priority === 'Низкий'
+        }"
+        >{{value.priority}}</span>
+    </div>
+    <div class="task-unit__body task-unit__body-inprocess">{{value.name}}</div>
+</ng-template>

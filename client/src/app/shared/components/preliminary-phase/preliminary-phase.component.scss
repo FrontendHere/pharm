@@ -1,0 +1,37 @@
+.preliminary-phase {
+  display: flex;
+  align-items: center;
+
+  &__circle {
+    display: block;
+    border-radius: 18px;
+    width: 12px;
+    height: 12px;
+
+    &--previous {
+      background-color: #2395D6;
+    }
+
+    &--changes {
+        background-color: #F2C94C;
+    }
+    &--agreement {
+        background-color: #27AE60;
+    }
+  }
+
+  &__text {
+    margin-left: 10px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 12px;
+    letter-spacing: 0.0025em;
+
+    /* черный */
+    color: #000000;
+  }
+
+}

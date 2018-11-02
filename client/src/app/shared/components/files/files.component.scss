@@ -1,0 +1,60 @@
+.attach {
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        padding: 13px;
+        align-items: center;
+        border-top: 1px solid #E0E0E0;
+        cursor: pointer;
+    }
+
+    &__left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__text {
+        display: block;
+        margin-right: 10px;
+        margin-left: 10px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 14px;
+        letter-spacing: 0.0025em;
+
+        color: #4F4F4F;
+    }
+
+    &__size {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 14px;
+        text-align: right;
+        letter-spacing: 0.0025em;
+
+        color: #828282;
+    }
+
+    &__date {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 14px;
+        text-align: right;
+        letter-spacing: 0.0025em;
+
+        color: #828282;
+    }
+}

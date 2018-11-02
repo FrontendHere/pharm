@@ -1,0 +1,42 @@
+:host {
+    position: fixed;
+    width: 250px;
+}
+
+.steps-list {
+
+    &__item {
+
+        margin: 15px 0;
+        padding: 5px 10px;
+        border-radius: 30px;
+        outline: none;
+
+        .link {
+            cursor: pointer;
+            color: darken(gray, 10%);
+            font-weight: 500;
+            font-family: Roboto;
+            transition: 400ms;
+            outline: none;
+
+            &:hover {
+                color: black;
+            }
+
+        }
+
+        &--activate {
+
+            color: #219653;
+            background-color: #E9F5EE;
+
+            &:hover {
+                color: #219653 !important;
+            }
+
+        }
+
+    }
+
+}

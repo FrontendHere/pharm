@@ -1,0 +1,23 @@
+:host {
+    height: calc(100vh - 62px);
+}
+
+.history {
+
+    &__header {
+
+        font-weight: 500;
+        font-size: 16px;
+        padding: 20px 10px;
+        border-bottom: 1px solid #c4c4c4;
+
+    }
+
+    &__content {
+
+        height: calc(100vh - 62px - 64px);
+        overflow: hidden;
+
+    }
+
+}
